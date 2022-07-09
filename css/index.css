@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+:root{
+    --violet:#4e1d51;
+    --dark:#222222;
+    --light:#ffffff;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    font-family: 'Catamaran', sans-serif;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+.container{
+    width: 100%;
+    max-width: 1360px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+}
+header{
+    width: 100%;
+    height: 80px;
+    background-color: var(--light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    font-size: 1.3rem;
+}
+.burger{
+    width: 30px;
+    height: 30px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+nav{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem; 
+}
+ a{
+    text-decoration: none;
+    color: var(--violet);
+    font-size: 1.3rem;
+    font-family: 'Kaushan Script', cursive;
+    letter-spacing: 2px;
+}
+.logo{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.client{
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.cart{
+    position: relative;
+    cursor: pointer;
+    margin:0 3rem;
+}
+.cart span{
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--violet);
+    color: var(--light);
+    font-size: 1.2rem;  
+}
+
+main{
+    width: 100%;
+    height: calc(100% - 80px);
+    background-image: url('/assets/images/mainBcg.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: var(--violet);
+    position: relative;
+}
+main::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.row{
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+}
+.row h1{
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    font-family: Kaushan Script, cursive;
+    letter-spacing: 1px;
+}
+.row h4{
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+}
+.row button{
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 2px;
+    background-color: var(--violet);
+    color: var(--light);
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+@media screen and (max-width: 768px){
+    html{
+        font-size: 14px;
+    }
+    .logo{
+        width: 80%;
+    }
+    .client{
+        width: 20%;
+    }
+    .burger{
+        width: 20%;
+        display: flex;
+    }
+    nav,.login{
+        display: none;
+    }  
+    .cart{
+        margin: 0;
+    }  
+}
+@media screen and (max-width: 768px){
+    html{
+        font-size: 11px;
+    }
+}
