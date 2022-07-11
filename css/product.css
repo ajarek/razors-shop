@@ -5,6 +5,8 @@
     --dark:#222222;
     --light:#ffffff;
     --light-violet:#f8a5c2;
+    --light-green:#55efc4;
+    --green:#00b894;
 }
 *{
     margin:0;
@@ -17,7 +19,8 @@ body{
     width: 100vw;
     display: flex;
     justify-content: center;
-    align-items: flex-start;   
+    align-items: flex-start;  
+    overflow-x: hidden; 
 }
 .container{
     width: 100%;
@@ -168,6 +171,165 @@ animation-name: flay;
     font-size: 1rem;
     font-style: italic;
     color: var(--violet);
+}
+.product-info-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--light-violet);
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    padding: 1rem;   
+    position: relative;
+}
+
+.product-info-buy{
+    position: absolute;
+    top:10%;
+    right:10%;
+    font-size: 1.5rem;
+    color: var(--light);
+    background-color: var(--light-green);
+    border-radius: 4px;
+    border: 1px solid var(--light-green);
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    padding: 1rem;   
+    cursor: pointer;
+}
+.product-info-buy:hover{
+    background-color: var(--green);
+}
+.product-info-close{
+    position: absolute;
+    top:10%;
+    left:10%;
+    font-size: 1.5rem;
+    color: var(--light);
+    background-color: var(--light);
+    border-radius: 4px;
+    border: 1px solid var(--light);
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    padding: 1rem;   
+    cursor: pointer;
+}
+.product-info-close:hover{
+    background-color: var(--violet);
+}
+.product-info-quantity{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.product-info-quantity span{
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+}
+.product-info-quantity input{
+    width: 100%;
+    text-align: center;
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+    color: var(--dark);
+    background-color: var(--light);
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    padding: 1rem;
+    margin: 1rem 0;   
+    cursor: pointer;
+}
+.product-info-title{
+    font-size: 2rem;
+    font-family: 'Kaushan Script', cursive;
+    letter-spacing: 2px;
+    color: var(--violet);
+}
+.product-info-price{
+    font-size: 1.5rem;
+    font-family: 'Kaushan Script', cursive;
+    letter-spacing: 2px;
+    color: var(--violet);
+}
+.product-info-description{
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--violet);
+}
+.payment-form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--light-violet);
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    padding: 1rem;   
+    position: relative;
+}
+.payment-form-title{
+    font-size: 2rem;
+    font-family: 'Kaushan Script', cursive;
+    letter-spacing: 2px;
+    color: var(--violet);
+}
+.payment-form-price span,.payment-form-quantity span,.payment-form-total span{
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+}
+
+.payment-form-image{  
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--light-violet);
+    border-radius: 4px;
+    padding: 1rem;   
+    position: relative;
+}
+.payment-form-image img{
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+.cart-container{
+    margin-top: 100px;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 4;
+    background-color: var(--light);
+    display: none;
+    padding: 1rem;
+}
+.commodity
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    background-color: var(--light);
+    border-radius: 4px;
+   
+    padding: 1rem;   
+    position: relative;
+}
+.commodity-image{
+    width: 10%;
+    height: 10%;
+}
+.commodity-image img{
+    height: 100%;
+    object-fit: cover;
 }
 @media screen and (max-width: 768px){
     html{

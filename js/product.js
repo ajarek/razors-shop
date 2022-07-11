@@ -1,10 +1,13 @@
 import {toggleMenu} from './toggleMemu.js';
 import {data} from '../data.js';
+import { paymentHandling } from './paymentHandling.js';
+import {closeItem} from './closeItem.js';
+import {addCart} from './cart.js';
 const grid=document.querySelector('.grid');
 toggleMenu('.burger', 'nav', 'active');
-
+let logged=true;
+let arr=[];
 function renderItems(){
-    
     grid.innerHTML='';
     for(let i=0; i<data.length; i++){
     const item=document.createElement('div');
@@ -30,13 +33,41 @@ function selectProduct(){
             grid.innerHTML=''
             const productInfoContainer=document.createElement('div');
             productInfoContainer.classList.add('product-info-container');
-            productInfoContainer.innerHTML=`<div class="product-info-title">${productInfo.title}</div>
+            productInfoContainer.innerHTML=`<div><button class="product-info-buy">Choose</button></div><div><button class="product-info-close">❌</button></div><div class="product-info-title">${productInfo.title}</div>
             <img src=${productInfo.image.url} alt="${productInfo.title}" />
             <div class="product-info-price">$${productInfo.price}</div>
+            <div class="product-info-quantity"><input type="number" value="1"><span>pcs</span></div>
             <p class="product-info-description">${productInfo.description}</p>`
             grid.appendChild(productInfoContainer);
+            closeItem('.product-info-close','.grid',renderItems);
+            eventPayment(productInfo)
+        })   
+    })  
+}
+
+
+
+function eventPayment(productInfo){
+    const buyButton=document.querySelectorAll('.product-info-buy');
+    buyButton.forEach(button=>{
+        button.addEventListener('click', ()=>{
+            const quantity=document.querySelector('.product-info-quantity input').value||1;
+            paymentHandling('.grid',logged,productInfo.title,productInfo.price,productInfo.image.url,quantity);
+            arr.push({title:productInfo.title,price:productInfo.price,image:productInfo.image.url,quantity:quantity})
+            eventAddCart();
+            closeItem('.product-info-close','.grid',renderItems);
            
         })
-    }
-    )
+    })
+}
+
+function eventAddCart(){
+    const cartButton=document.querySelectorAll('.product-info-buy');
+    cartButton.forEach(button=>{
+        button.addEventListener('click', ()=>{
+           addCart(arr,'.cart-container','#quantity');
+            
+        })
+    })
+
 }
