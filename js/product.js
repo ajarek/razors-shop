@@ -36,7 +36,7 @@ function selectProduct(){
             productInfoContainer.innerHTML=`<div><button class="product-info-buy">Choose</button></div><div><button class="product-info-close">❌</button></div><div class="product-info-title">${productInfo.title}</div>
             <img src=${productInfo.image.url} alt="${productInfo.title}" />
             <div class="product-info-price">$${productInfo.price}</div>
-            <div class="product-info-quantity"><input type="number" value="1"><span>pcs</span></div>
+            <div class="product-info-quantity"><input type="number" value="1"  step="1" ><span>pcs</span></div>
             <p class="product-info-description">${productInfo.description}</p>`
             grid.appendChild(productInfoContainer);
             closeItem('.product-info-close','.grid',renderItems);
@@ -44,8 +44,6 @@ function selectProduct(){
         })   
     })  
 }
-
-
 
 function eventPayment(productInfo){
     const buyButton=document.querySelectorAll('.product-info-buy');
@@ -66,8 +64,40 @@ function eventAddCart(){
     cartButton.forEach(button=>{
         button.addEventListener('click', ()=>{
            addCart(arr,'.cart-container','#quantity');
-            
+            document.querySelector('.payment-form').remove()
+            renderItems()
         })
     })
-
+   
 }
+function eventDisplayCart(){
+   
+    const cartButton=document.querySelector('.cart');
+    const cartContainer=document.querySelector('.cart-container');
+    cartButton.addEventListener('click', ()=>{
+        cartContainer.classList.toggle('active');
+        // deleteItemCart()
+    }
+    )
+    
+}
+
+eventDisplayCart()
+
+
+// function deleteItemCart(){
+//     const deleteButton=document.querySelectorAll('.commodity-delete');
+//     deleteButton.forEach(button=>{
+//         button.addEventListener('click', (e)=>{
+//             const index=e.target.id
+//             arr.splice(index,1)
+//             addCart(arr,'.cart-container','#quantity');
+//             eventDisplayCart()
+//         }
+//         )
+//     }
+
+//     )
+// }
+
+
