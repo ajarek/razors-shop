@@ -5,8 +5,9 @@ import {closeItem} from './closeItem.js';
 import {addCart} from './cart.js';
 const grid=document.querySelector('.grid');
 toggleMenu('.burger', 'nav', 'active');
-let logged=true;
+let logged=localStorage.getItem('logged');
 let arr=[];
+
 function renderItems(){
     grid.innerHTML='';
     for(let i=0; i<data.length; i++){
@@ -46,12 +47,13 @@ function selectProduct(){
 }
 
 function eventPayment(productInfo){
+   
     const buyButton=document.querySelectorAll('.product-info-buy');
     buyButton.forEach(button=>{
         button.addEventListener('click', ()=>{
             const quantity=document.querySelector('.product-info-quantity input').value||1;
             paymentHandling('.grid',logged,productInfo.title,productInfo.price,productInfo.image.url,quantity);
-            arr.push({title:productInfo.title,price:productInfo.price,image:productInfo.image.url,quantity:quantity})
+            arr.push({id:productInfo.id,title:productInfo.title,price:productInfo.price,image:productInfo.image.url,quantity:quantity})
             eventAddCart();
             closeItem('.product-info-close','.grid',renderItems);
            
@@ -76,7 +78,7 @@ function eventDisplayCart(){
     const cartContainer=document.querySelector('.cart-container');
     cartButton.addEventListener('click', ()=>{
         cartContainer.classList.toggle('active');
-        // deleteItemCart()
+        deleteItemCart()
     }
     )
     
@@ -85,19 +87,22 @@ function eventDisplayCart(){
 eventDisplayCart()
 
 
-// function deleteItemCart(){
-//     const deleteButton=document.querySelectorAll('.commodity-delete');
-//     deleteButton.forEach(button=>{
-//         button.addEventListener('click', (e)=>{
-//             const index=e.target.id
-//             arr.splice(index,1)
-//             addCart(arr,'.cart-container','#quantity');
-//             eventDisplayCart()
-//         }
-//         )
-//     }
+function deleteItemCart(){
+    const deleteButton=document.querySelectorAll('.commodity-delete');
+    deleteButton.forEach(button=>{
+        button.addEventListener('click', (e)=>{
+            arr=arr.filter(el =>el.id!=e.target.id)
+            addCart(arr,'.cart-container','#quantity');
+           renderItems()
+           document.querySelector('.cart-container').classList.toggle('active');
+        })
+    }) 
+}
 
-//     )
-// }
+const logout = document.querySelector('#log-out')
+logout.addEventListener('click', () => {
+    localStorage.setItem('logged', false)
+    window.location.reload()
+})
 
 

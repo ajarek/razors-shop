@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+:root{
+    --violet:#4e1d51;
+    --dark:#222222;
+    --light:#ffffff;
+    --light-violet:#f8a5c2;
+    --light-green:#55efc4;
+    --green:#00b894;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    font-family: 'Catamaran', sans-serif;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    overflow-x: hidden; 
+}
+.container{
+    width: 320px; 
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    background-color: var(--light-violet);
+    padding: 1rem;
+}
+form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+form div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+input{
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--light);
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+button{
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--green);
+    border-radius: 5px;
+    background-color: var(--light-green);
+    color: var(--dark);
+    font-size: 1.3rem;
+    padding: 0 1rem;
+    cursor: pointer;
+}

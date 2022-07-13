@@ -14,7 +14,7 @@ export function addCart(array,cartContainer,selectorCart){
     document.querySelector(cartContainer).appendChild(commodity);
     
 
-    document.querySelector(selectorCart).innerHTML=array.length || 0;
+    
  }); 
  const payDiv=document.createElement('div');
  payDiv.innerHTML=`<button class="commodity-pay">Pay</button>`
@@ -23,6 +23,6 @@ export function addCart(array,cartContainer,selectorCart){
    togetherPay.innerHTML=`Together to pay: ${(array.reduce((acc,cur)=>acc+cur.price*cur.quantity,0)).toFixed(2)} $`
    document.querySelector(cartContainer).appendChild(togetherPay);
    document.querySelector(cartContainer).appendChild(payDiv);
-   
+   document.querySelector(selectorCart).innerHTML=array.length || 0;
 }
 

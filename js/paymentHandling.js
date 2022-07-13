@@ -1,5 +1,6 @@
 export function paymentHandling(selectorContainer,logged,title,price,image,quantity=1){
-  if(logged===true){
+  logged =localStorage.getItem('logged');
+  if(logged==='true'){
     document.querySelector(selectorContainer).innerHTML='';
       const paymentForm = document.createElement('div');
       paymentForm.classList.add('payment-form');
