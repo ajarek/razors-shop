@@ -127,7 +127,7 @@ animation-name: flay;
 main{
     width: 100%;
     height: calc(100% - 80px);
-    background-image: url('/assets/images/mainBcg.jpeg');
+    background-image: url('../assets/images/mainBcg.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
