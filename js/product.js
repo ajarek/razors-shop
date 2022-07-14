@@ -35,7 +35,7 @@ function selectProduct(){
             const productInfoContainer=document.createElement('div');
             productInfoContainer.classList.add('product-info-container');
             productInfoContainer.innerHTML=`<div><button class="product-info-buy">Choose</button></div><div><button class="product-info-close">❌</button></div><div class="product-info-title">${productInfo.title}</div>
-            <img src=${productInfo.image.url} alt="${productInfo.title}" />
+            <div class="product-img"><img src=${productInfo.image.url} alt="${productInfo.title}"/></div>
             <div class="product-info-price">$${productInfo.price}</div>
             <div class="product-info-quantity"><input type="number" value="1"  step="1" ><span>pcs</span></div>
             <p class="product-info-description">${productInfo.description}</p>`

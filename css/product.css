@@ -260,6 +260,11 @@ animation-name: flay;
     font-style: italic;
     color: var(--violet);
 }
+.product-img img{
+    width: 100%;
+    object-fit: cover;
+}
+
 .payment-form{
     width: 100%;
     height: 100%;
@@ -279,9 +284,13 @@ animation-name: flay;
     letter-spacing: 2px;
     color: var(--violet);
 }
+.payment-form-price{
+   margin-top: 3rem;
+}
 .payment-form-price span,.payment-form-quantity span,.payment-form-total span{
     font-size: 1.5rem;
     margin-left: 0.5rem;
+   
 }
 
 .payment-form-image{  
@@ -296,7 +305,7 @@ animation-name: flay;
     position: relative;
 }
 .payment-form-image img{
-    height: 100%;
+    height:100%;
     object-fit: cover;
     cursor: pointer;
 }
@@ -384,15 +393,26 @@ display: flex;
     }
     .product-info-close{
         padding: 0%;
+        top: 12%;
+        left: 5%;
     }
     .product-info-buy{
         padding: 0 0.3rem;
+        top: 12%;
+        right: 7%;
     }
+    .product-img img{
+        width: 80%;
+    }    
     .payment-form{
         justify-content: space-between;
     }
-    .payment-form-image {
-        height: 70%;
+    .payment-form-image{
+        height: 100%;
+        width: 100%;
+    }
+    .payment-form-image img {
+        width: 80%;
        
     }
 }
